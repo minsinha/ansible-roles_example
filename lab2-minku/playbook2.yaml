@@ -1,0 +1,7 @@
+---
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - name: create a user 'deploy-user'
+    user: name=deploy-user state=present group=deploy shell=/bin/bash

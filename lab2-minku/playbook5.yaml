@@ -1,0 +1,9 @@
+---
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - name: create a file
+    file: dest=/var/www/html/index.html mode=755 state=touch
+  - name: add content to the file
+    blockinfile: dest=/var/www/html/index.html state=present block="Hello"

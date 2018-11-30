@@ -1,0 +1,12 @@
+---
+# tasks file for web1
+ - name: Install httpd
+   yum: name={{service_name}} state=present
+   yum: name={{service_name}} enabled=yes state=started
+when: ansible_os_family == "RedHat"
+ - name: Install git, ntp and vim
+   yum: name={{ item }} state=present
+   with_items:
+      - git
+      - ntp
+      - vim

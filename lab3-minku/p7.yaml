@@ -1,0 +1,6 @@
+---
+- hosts: web
+
+  tasks:
+  - name: create a web server
+    yum: name={{service_name}} state=present

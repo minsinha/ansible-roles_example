@@ -1,0 +1,8 @@
+---
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - name: install git and wget
+    yum: name=git state=present
+    yum: name=wget state=present

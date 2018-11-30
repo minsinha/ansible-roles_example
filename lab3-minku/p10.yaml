@@ -1,0 +1,9 @@
+---
+- hosts: web
+  vars_files: /home/pb10var.yaml
+
+  tasks:
+  - name: create a web server
+    yum: name={{pb10var1}} state=present
+  - name: start the service
+    service: name={{pb10var1}} state=started

@@ -1,0 +1,10 @@
+---
+- hosts: web
+  vars:
+    pb_var1: httpd
+
+  tasks:
+  - name: create a web server
+    yum: name={{pb_var1}} state=present
+  - name: start the service
+    service: name={{pb_var1}} state=started

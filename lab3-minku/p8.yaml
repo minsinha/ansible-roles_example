@@ -1,0 +1,8 @@
+---
+- hosts: web
+ 
+  tasks:
+  - name: create a web server
+    yum: name={{inventory_var1}} state=present
+  - name: start the service
+    service: name={{inventory_var1}} state=started

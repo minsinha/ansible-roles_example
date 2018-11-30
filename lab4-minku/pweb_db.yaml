@@ -1,0 +1,29 @@
+---
+- hosts: web
+  sudo: yes
+  vars:
+    http_port: 80
+    doc_dir: /ansible/
+    doc_root: /var/www/html/
+    max_clients: 5
+
+
+
+
+  vars_prompt:
+    - name: username
+      prompt:  What is your name?  What is your Quest?  What is your fav color?
+
+  tasks:
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started
+
+  - name: Copy Site Files
+    template: src=/root/ansible/lab4-minku/templates/index.j2 dest={{ doc_root }}/index.html
+  handlers:
+     - name: Restart Apache
+       service: name=httpd state=restarted

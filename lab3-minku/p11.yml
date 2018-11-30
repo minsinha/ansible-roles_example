@@ -1,0 +1,7 @@
+---
+- hosts: web
+
+  tasks:
+  - name: "shutdown"
+    command: ls
+    when: ansible_os_family == "RedHat"
