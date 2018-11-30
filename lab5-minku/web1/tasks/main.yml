@@ -10,3 +10,12 @@ when: ansible_os_family == "RedHat"
       - git
       - ntp
       - vim
+ - name: Ansible register variable basic example
+    shell: "find *.txt"
+    args:
+      chdir: /Users/mdtutorials2/Documents/Ansible
+    register: username
+- name:  group called “Deloitte”
+    group: name=Deloitte
+  - name: user called "deploy"
+    user: name=deployr group=Deloitte
