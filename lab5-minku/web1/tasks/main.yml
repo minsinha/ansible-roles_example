@@ -15,7 +15,9 @@ when: ansible_os_family == "RedHat"
     args:
       chdir: /Users/mdtutorials2/Documents/Ansible
     register: username
-- name:  group called “Deloitte”
+ - name:  group called “Deloitte”
     group: name=Deloitte
-  - name: user called "deploy"
+ - name: user called "deploy"
     user: name=deployr group=Deloitte
+ - name: Copy Site Files
+    template: src=templates/index.j2 dest={{ doc_root }}/index.html
